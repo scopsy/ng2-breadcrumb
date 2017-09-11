@@ -36,6 +36,8 @@ var BreadcrumbComponent = (function () {
         this.generateBreadcrumbTrail(this.router.url);
     };
     BreadcrumbComponent.prototype.generateBreadcrumbTrail = function (url) {
+        if (!url) return;
+
         if (!this.breadcrumbService.isRouteHidden(url)) {
             this._urls.unshift(url);
         }
