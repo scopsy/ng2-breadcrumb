@@ -57,6 +57,8 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
     }
 
     generateBreadcrumbTrail(url: string): void {
+        if (!url) return;
+        
         if (!this.breadcrumbService.isRouteHidden(url)) {
             //Add url to beginning of array (since the url is being recursively broken down from full url to its parent)
             this._urls.unshift(url);
